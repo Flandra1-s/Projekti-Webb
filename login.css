@@ -88,13 +88,13 @@ input[type="email"] {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-    border-color: #ff6f61;
+    border-color: #cd3c2f;
     outline: none;
 }
 button {
     width: 100%;
     padding: 12px 0;
-    background-color: #ff6f61;
+    background-color: #cd4736;
     color: #fff;
     font-size: 18px;
     border: none;
@@ -102,7 +102,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background-color: #e65c52;
+    background-color: #dc7b75;
 }
 p {
     text-align: center;
@@ -110,7 +110,7 @@ p {
     font-size: 14px;
 }
 p a {
-    color: #ff6f61;
+    color: #db584c;
     text-decoration: none;
     font-weight: bold;
 }

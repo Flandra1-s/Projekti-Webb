@@ -210,12 +210,12 @@ body {
   .faq-item.open .faq-toggle {
     transform: rotate(45deg);
   }
-  
   footer {
-    background: linear-gradient(to bottom, rgba(0, 128, 255, 0.8), rgba(0, 64, 128, 0.9));
-    color: white;
+    background: linear-gradient(to bottom, #2E3B4E, #243447);
+    color: #ffffff;
     padding: 30px 20px;
   }
+  
   .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -223,25 +223,95 @@ body {
     max-width: 1200px;
     margin: auto;
   }
+  
   .footer-column {
     flex: 1;
     min-width: 200px;
     margin: 10px;
   }
+  
   .footer-title {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #ffd700;
+    color: #ffffff;
+    font-weight: bold;
   }
+  
   .social-icons a {
     margin-right: 10px;
     display: inline-block;
   }
+  
   .social-icons img {
     width: 40px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%);
   }
+  
   .social-icons a:hover img {
     transform: scale(1.2);
+    filter: grayscale(0%);
+  }
+  
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .newsletter-form input {
+    padding: 10px;
+    border: 1px solid #3B4A5A;
+    border-radius: 4px;
+    background: #3C4A5C;
+    color: #ffffff;
+  }
+  
+  .newsletter-form input::placeholder {
+    color: #d1d1d1;
+  }
+  
+  .newsletter-form button {
+    padding: 10px;
+    background: #3B4A5A;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .newsletter-form button:hover {
+    background: #FFC107;
+    color: #3C4A5C;
+  }
+  
+  .cookie-notice {
+    background: #3C4A5C;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #3B4A5A;
+  }
+  
+  .cookie-notice button {
+    background: #3B4A5A;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .cookie-notice button:hover {
+    background: #FFC107;
+    color: #3C4A5C;
   }
   

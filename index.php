@@ -1,3 +1,22 @@
+<?php
+include('db-connection.php');
+
+$sql = "SELECT title, price, image_path FROM booking";
+$result = $conn->query($sql);
+
+$destinations = [];
+if ($result && $result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $destinations[] = $row;
+    }
+} else {
+    echo "No destinations found!";
+}
+
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +40,7 @@
             </div>
             <nav class="nav" id="nav">
                 <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
+                    <li><a href="product.php">Destinations</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#packages">Packages</a></li>
@@ -83,54 +101,16 @@
              we've got the perfect trip for you.
         </p>
         <div class="packages-grid">
-            <div class="package-card">
-                <img src="https://preview.uideck.com/items/traveland/assets/images/destination-1.jpg" alt="Tokyo, Japan">
-                <div class="package-content">
-                    <h3>Tokyo, Japan</h3>
-                    <p>From $399</p>
-                    <a href="#" class="btn-primary">Book Now</a>
+            <?php foreach ($destinations as $destination): ?>
+                <div class="package-card">
+                    <img src="<?php echo htmlspecialchars($destination['image_path']); ?>" alt="<?php echo htmlspecialchars($destination['title']); ?>">
+                    <div class="package-content">
+                        <h3><?php echo htmlspecialchars($destination['title']); ?></h3>
+                        <p><?php echo htmlspecialchars($destination['price']); ?></p>
+                        <a href="#" class="btn-primary">Book Now</a>
+                    </div>
                 </div>
-            </div>
-            <div class="package-card">
-                <img src="https://preview.uideck.com/items/traveland/assets/images/destination-2.jpg" alt="Beijing, China">
-                <div class="package-content">
-                    <h3>Beijing, China</h3>
-                    <p>From $599</p>
-                    <a href="#" class="btn-primary">Book Now</a>
-                </div>
-            </div>
-            <div class="package-card">
-                <img src="https://preview.uideck.com/items/traveland/assets/images/destination-3.jpg" alt="Hawaii, USA">
-                <div class="package-content">
-                    <h3>Hawaii, USA</h3>
-                    <p>From $799</p>
-                    <a href="#" class="btn-primary">Book Now</a>
-                </div>
-            </div>
-            <div class="package-card">
-                <img src="https://preview.uideck.com/items/traveland/assets/images/destination-4.jpg" alt="Semporna, Malaysia">
-                <div class="package-content">
-                    <h3>Semporna, Malaysia</h3>
-                    <p>From $999</p>
-                    <a href="#" class="btn-primary">Book Now</a>
-                </div>
-            </div>
-            <div class="package-card">
-                <img src="https://preview.uideck.com/items/traveland/assets/images/destination-5.jpg" alt="Bangkok, Thailand">
-                <div class="package-content">
-                    <h3>Bangkok, Thailand</h3>
-                    <p>From $499</p>
-                    <a href="#" class="btn-primary">Book Now</a>
-                </div>
-            </div>
-            <div class="package-card">
-                <img src="https://preview.uideck.com/items/traveland/assets/images/destination-6.jpg" alt="Yushin, Singapore">
-                <div class="package-content">
-                    <h3>Yushin, Singapore</h3>
-                    <p>From $299</p>
-                    <a href="#" class="btn-primary">Book Now</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
